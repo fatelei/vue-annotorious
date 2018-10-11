@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Annotorious image="https://annotorious.github.io/img/splash-image-2.jpg"/>
+    <Annotorious image="https://annotorious.github.io/demos/640px-Hallstatt_300.jpg"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Annotorious from './components/Annotorious.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Annotorious
   }
 }
 </script>

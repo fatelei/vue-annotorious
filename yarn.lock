@@ -985,6 +985,10 @@ alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
 
+annotorious@0.6.4:
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/annotorious/-/annotorious-0.6.4.tgz#f6b7b16cff2d5147c94fa8a338ff7b3e1aea7880"
+
 ansi-colors@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.1.0.tgz#dcfaacc90ef9187de413ec3ef8d5eb981a98808f"

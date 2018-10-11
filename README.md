@@ -19,3 +19,25 @@ yarn run build
 ```
 yarn run lint
 ```
+
+### Usage
+
+```js
+<template>
+  <Annotorious image="http://foo.bar"/>
+</template>
+
+<script>
+import 'vue-annotorious'
+
+export default {
+  name: 'example'
+}
+</script>
+```
+
+### API
+
+- onAnnotationCreate
+- onAnnotationUpdate
+- onAnnotationRemove
