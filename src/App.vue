@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Annotorious
-      srcPath='http://annotorious.github.com/latest/annotorious.min.js'
       image="https://annotorious.github.io/img/splash-image-2.jpg"/>
     <Annotorious
       srcPath='http://annotorious.github.com/latest/annotorious.min.js'
