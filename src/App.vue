@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <Annotorious image="https://annotorious.github.io/img/splash-image-2.jpg"/>
-    <Annotorious image="https://annotorious.github.io/demos/640px-Hallstatt_300.jpg"/>
+    <Annotorious
+      srcPath='http://annotorious.github.com/latest/annotorious.min.js'
+      image="https://annotorious.github.io/img/splash-image-2.jpg"/>
+    <Annotorious
+      srcPath='http://annotorious.github.com/latest/annotorious.min.js'
+      image="https://annotorious.github.io/demos/640px-Hallstatt_300.jpg"/>
   </div>
 </template>
 

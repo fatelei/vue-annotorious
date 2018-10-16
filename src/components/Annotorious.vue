@@ -6,7 +6,7 @@
 
 
 <script>
-import 'annotorious'
+import annotoriouseLoader from './AnnotoriousLoader'
 
 export default {
   name: 'Annotorious',
@@ -14,20 +14,32 @@ export default {
     image: String,
     onAnnotationCreate: Function,
     onAnnotationUpdate: Function,
-    onAnnotationRemove: Function
+    onAnnotationRemove: Function,
+    srcPath: String
   },
 
   mounted: function () {
-    window.anno.makeAnnotatable(this.$refs.image)
-    this.onCreate.bind(this)
-    this.onRemove.bind(this)
-    this.onUpdate.bind(this)
-    window.anno.addHandler('onAnnotationCreated', this.onCreate)
-    window.anno.addHandler('onAnnotationRemoved', this.collect)
-    window.anno.addHandler('onAnnotationUpdated', this.onUpdate)
+    this.fetchAnnotorious()
   },
 
   methods: {
+    fetchAnnotorious: function () {
+      annotoriouseLoader.load(this.srcPath, this.afterLoadAnnotorious)
+    },
+
+    afterLoadAnnotorious: function () {
+      this.anno = window.anno;
+
+      this.anno.makeAnnotatable(this.$refs.image);
+
+      this.onCreate.bind(this);
+      this.onRemove.bind(this);
+      this.onUpdate.bind(this);
+      this.anno.addHandler('onAnnotationCreated', this.onCreate);
+      this.anno.addHandler('onAnnotationRemoved', this.onCreate);
+      this.anno.addHandler('onAnnotationUpdated', this.onCreate);
+    },
+
     onCreate: function (annotation) {
       const { src, shapes, text } = annotation
 
