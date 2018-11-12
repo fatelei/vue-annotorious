@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="image" alt="图片" ref="image"/>
+    <img :src="image" alt="图片" ref="image" @load="onLoad"/>
   </div>
 </template>
 
@@ -18,13 +18,13 @@ export default {
     srcPath: String
   },
 
-  mounted: function () {
-    this.fetchAnnotorious()
-  },
-
   methods: {
     fetchAnnotorious: function () {
       annotoriouseLoader.load(this.srcPath, this.afterLoadAnnotorious)
+    },
+
+    onLoad: function () {
+      this.fetchAnnotorious()
     },
 
     afterLoadAnnotorious: function () {
