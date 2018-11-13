@@ -1,6 +1,6 @@
 {
   "name": "vue-annotorious",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -8,8 +8,9 @@
     "build-bundle": "vue-cli-service build --target lib --name vueAnnotorious ./src/components/index.js"
   },
   "dependencies": {
+    "annotorious": "0.6.4",
     "vue": "^2.5.17",
-    "annotorious": "0.6.4"
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0",

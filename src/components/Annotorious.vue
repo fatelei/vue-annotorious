@@ -1,12 +1,14 @@
 <template>
   <div>
-    <img :src="image" alt="图片" ref="image" @load="onLoad"/>
+    <h3 v-if="err !== null">{{err}}</h3>
+    <img v-if="imageData" :src="imageData" alt="图片" :ref="key"/>
   </div>
 </template>
 
 
 <script>
 import annotoriouseLoader from './AnnotoriousLoader'
+import 'whatwg-fetch'
 
 export default {
   name: 'Annotorious',
@@ -18,19 +20,49 @@ export default {
     srcPath: String
   },
 
+  data: function () {
+    return {
+      imageData: null,
+      err: null,
+      anno: null,
+      key: 0
+    }
+  },
+
+  mounted: function () {
+    this.loadImage()
+  },
+
+  watch: {
+    image: function (newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.key += 1
+        this.loadImage()
+      }
+    }
+  },
+
   methods: {
+    loadImage: function () {
+      fetch(this.image).then(res => res.blob()).then(imageBinary => {
+        this.imageData = URL.createObjectURL(imageBinary)
+        this.fetchAnnotorious()
+        this.err = null
+      }).catch(err => {
+        this.err = err
+      })
+    },
+
     fetchAnnotorious: function () {
       annotoriouseLoader.load(this.srcPath, this.afterLoadAnnotorious)
     },
 
-    onLoad: function () {
-      this.fetchAnnotorious()
-    },
-
     afterLoadAnnotorious: function () {
-      this.anno = window.anno;
+      if (!this.anno) {
+        this.anno = window.anno;
+      }
 
-      this.anno.makeAnnotatable(this.$refs.image);
+      this.anno.makeAnnotatable(this.$refs[this.key]);
 
       this.onCreate.bind(this);
       this.onRemove.bind(this);
@@ -69,5 +101,9 @@ export default {
 
 <style scoped>
 @import '../../node_modules/annotorious/css/theme-dark/annotorious-dark.css';
+
+img {
+  width: 100%;
+}
 </style>
 
