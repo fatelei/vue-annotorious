@@ -1,6 +1,6 @@
 {
   "name": "vue-annotorious",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -10,6 +10,7 @@
   "dependencies": {
     "annotorious": "0.6.4",
     "vue": "^2.5.17",
+    "vue-loading-overlay": "^3.1.0",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
