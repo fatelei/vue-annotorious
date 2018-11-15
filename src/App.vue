@@ -1,12 +1,7 @@
 <template>
   <div id="app">
     <Annotorious
-      image="https://annotorious.github.io/img/splash-image-2.jpg"/>
-    <Annotorious
-      srcPath='http://annotorious.github.com/latest/annotorious.min.js'
-      image="https://annotorious.github.io/demos/640px-Hallstatt_300.jpg"/>
-    <Annotorious
-      :image="images[index]"/>
+      :images="images.slice(index, index + 3)"/>
     <button @click="nextImage" class="click-btn">click</button>
   </div>
 </template>
@@ -24,13 +19,20 @@ export default {
       index: 0,
       images: [
         'https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/ce2ece60-9b32-11e6-95ab-00163ed833e7/1025091706/the-test-fun-for-friends-screenshot.jpg',
-        'https://annotorious.github.io/demos/640px-Hallstatt_300.jpg'
-      ]
+        'https://annotorious.github.io/demos/640px-Hallstatt_300.jpg',
+        'https://annotorious.github.io/img/splash-image-2.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/NY-233.svg/750px-NY-233.svg.png',
+        'https://media-cdn.tripadvisor.com/media/photo-s/03/34/25/1b/club-233.jpg',
+
+      ],
     }
   },
   methods: {
     nextImage: function () {
-      this.index = (this.index + 1) % this.images.length
+      this.index += 3
+      if (this.index > this.images.length) {
+        this.index = 0
+      }
     }
   }
 }

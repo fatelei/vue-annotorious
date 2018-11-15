@@ -1,5 +1,9 @@
 # vue-annotorious
 
+## Deprecated
+
+`version under 0.1.7 is not recommeneded, using version >= 0.1.7`
+
 ## Project setup
 ```
 yarn install
