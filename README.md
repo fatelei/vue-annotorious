@@ -28,7 +28,7 @@ yarn run lint
 
 ```js
 <template>
-  <Annotorious image="http://foo.bar"/>
+  <Annotorious images='["http://foo.bar"]'/>
 </template>
 
 <script>
